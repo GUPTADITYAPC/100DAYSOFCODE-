@@ -1,0 +1,27 @@
+# gfg potd 
+DAY 4 
+problem name : Count Cyclic Paths
+code 
+---------------------------------------------------------------------------------------------
+class Solution{   
+public:
+    int countPaths(int N){
+       
+        long  O=1,A=0,B=0,C=0;
+        long  m=1e9+7;
+        
+        for( int i=1;i<=N;i++ )
+        {
+            
+           long temp1=(A+B+C)%m;
+           long temp2=(O+B+C)%m;
+           long temp3=(A+C+O)%m;
+           long temp4=(A+B+O)%m;
+           O=temp1;
+           A=temp2;
+           B=temp3;
+           C=temp4;
+            
+        }
+        return O;
+    }
