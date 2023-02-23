@@ -1,0 +1,20 @@
+GEEKS FOR GEEKS 
+LEADERS IN AN AARAY
+CODE:
+-------------------------------------------------------
+  vector<int> leaders(int a[], int n){
+        vector<int>v ;
+       int big=a[n-1];
+        
+        for(int i=n-1; i >= 0; i--)
+        {
+            if(a[i] >= big)
+            {
+                big = a[i];
+                v.push_back(big);
+            }
+        }
+        
+        return {v.rbegin(), v.rend()};
+        
+    }
