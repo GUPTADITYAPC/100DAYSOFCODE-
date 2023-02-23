@@ -1,0 +1,19 @@
+GEEKS FOR GEEKS
+Equilibrium Point
+CODE :
+-----------------------------------------------------------------------------------------------
+
+  int equilibriumPoint(long long a[], int n) {
+        int sum=0;
+    for( int i=0;i<n;i++)
+    {
+        sum=sum+a[i];
+    }
+   int ans=0;
+    for( int i=0;i<n;i++)
+    {  if(ans==sum-ans-a[i])
+        return i+1;
+        ans=ans+a[i];
+    }
+    return -1;
+    }
