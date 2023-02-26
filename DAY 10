@@ -1,0 +1,32 @@
+GEEKS FOR GEEKS 
+IS IT FIN\BONACCI
+CODE:
+-----------------------------------------------------------------------------------
+  long long solve(int N, int K, vector<long long> GeekNum) {
+            int size = GeekNum.size();
+           if (K == 1) {
+             return GeekNum[size - 1];
+             }
+
+           if (N < K)
+        {
+            return GeekNum[size- 1];
+            
+        }
+        long long sum = 0;
+        int start = size - K;
+         for (int i = start ; i < size ; i++)
+         {
+             sum +=GeekNum[i];
+             
+         }
+            GeekNum.push_back(sum);
+         for (int i = GeekNum.size()-1; i < N-1 ; i++)
+          {
+            sum -= GeekNum[start++];
+              sum += GeekNum[i];
+              GeekNum.push_back(sum);
+          }
+            return GeekNum[N-1];
+    }
+};
