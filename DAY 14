@@ -1,0 +1,13 @@
+GEEJKS FOR GEEKS 
+CUTTING RECTANGLES
+CODE :
+-----------------------------------------------------------------------------
+vector<long long int> minimumSquares(long long int L, long long int B)
+    {
+        vector <long long int> ans;
+        int count=__gcd(L,B);
+       ans.push_back(L/count *B/count);
+       ans.push_back(count);
+        return ans;
+    }
+};
