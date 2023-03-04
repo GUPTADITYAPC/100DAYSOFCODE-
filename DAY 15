@@ -1,0 +1,27 @@
+GEEKS FOR GEEKS 
+DETECT LOOP IN LINKED LIST
+CODE :
+-----------------------------------------------------------------
+bool detectLoop(Node* head)
+    {
+        // your code here
+            Node *first = head;
+            Node *second = head;
+             if (!first)
+               return 0;
+             while (first!=NULL && second!=NULL){
+             first = first->next;
+             if (second->next == NULL)
+            {
+              second = NULL;
+               break;
+            }
+            second = second->next->next;
+                if (first == second)
+             break;
+            }
+          if (first == NULL || second ==NULL)
+         return 0;
+         else 
+          return 1;
+    }
