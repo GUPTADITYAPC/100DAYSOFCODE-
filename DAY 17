@@ -1,0 +1,38 @@
+GEEKS FOR GEEKS 
+GEEK HATES TOO MANY 1s
+------------------------------------------------------------
+QUESTION 
+
+Given an non-negative integer n. You are only allowed to make set bit unset. 
+You have to find the maximum possible value of query so that after performing the given operations,
+no three consecutive bits of the integer query are set-bits. 
+
+Example 1:
+
+Input:
+n = 2
+Output: 
+2
+Explanation: 
+2's binary form is 10, no 3 consecutive set bits are here. 
+So, 2 itself would be answer.
+
+CODE :
+------------------------------------------------------------------------------------------------
+ int noConseBits(int n) {
+        int res=0;
+        int i=31;
+        int count =0;
+        while (i>=0)
+        {
+            if(count<2 &&(n&(1<<i)))
+            {
+               res=(res|(1<<i));
+                count++;
+            }
+            else 
+            count=0;
+            i--;
+        }
+        return res;
+    }
