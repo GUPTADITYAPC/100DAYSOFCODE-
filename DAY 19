@@ -1,0 +1,24 @@
+GEEKS FOR GEEKS 
+BALLON EVERYWHERE
+CODE :
+------------------------------------------------------------------------------
+ int maxInstance(string s){
+        int Cb=0,Ca=0,Cl=0,Co=0,Cn=0;
+    for( int i=0;i<s.length();i++)
+    {
+        if(s[i]=='b')
+        Cb++;
+        else if(s[i]=='a')
+        Ca++;
+        else if (s[i]=='n')
+        Cn++;
+        else if(s[i]=='l')
+        Cl++;
+        else if (s[i]=='o')
+        Co++;
+        
+    }
+    int mini=min(min(Cb,Ca),Cn);
+    int ans=min(mini,min(Cl/2,Co/2));
+    return ans;
+    }
