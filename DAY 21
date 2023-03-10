@@ -1,0 +1,43 @@
+GEEKS FOR GEEKS 
+Maximum Triplet product
+CODE :
+------------------------------------------------------------------------------------------------------
+    long long maxTripletProduct(long long arr[], int n)
+    {
+    	// Complete the function
+    	long long largest=LLONG_MIN;
+    	long long slargest=LLONG_MIN;
+    	long long tlargest=LLONG_MIN;
+    	long long smallest=LLONG_MAX;
+    	long long Ssmallest=LLONG_MAX;
+    	for( int i=0;i<n;i++)
+    	{
+    	    long long temp=arr[i];
+    	    if( temp>largest)
+    	    {
+    	        tlargest=slargest;
+    	        slargest=largest;
+    	        largest=temp;
+    	        
+    	    }
+    	    else if(temp>slargest)
+    	    {
+    	        tlargest=slargest;
+    	        slargest=temp;
+    	    }
+    	    else if(temp>tlargest)
+    	    tlargest=temp;
+    	    if(temp<smallest)
+    	    {
+    	        Ssmallest=smallest;
+    	        smallest=temp;
+    	        
+    	    }
+    	   else  if( temp<Ssmallest)
+    	    {
+    	        Ssmallest=temp;
+    	    }
+    	}
+    	return (max(largest*slargest*tlargest,smallest*Ssmallest*largest));
+    	
+    }
