@@ -1,0 +1,28 @@
+GEEEKS FOR GEEKS 
+Yet another query problem
+CODE :
+------------------------------------------------------------------------------------
+vector<int> solveQueries(int N, int num, vector<int> &A, vector<vector<int>> &Q) {
+        // code here
+        int freq[N];
+        vector<int> res;
+       unordered_map<int,int> mp;
+        for( int i=N-1;i>=0;i--)
+        {
+            mp[A[i]]++;
+            freq[i]=mp[A[i]];
+        }
+        for( int i=0;i<num;i++)
+        {
+            int count=0;
+            for( int j=Q[i][0];j<=Q[i][1];j++)
+            {
+                if(freq[j]==Q[i][2])
+                count++;
+                
+            }
+            res.push_back(count);
+        }
+        return res;
+        
+    }
