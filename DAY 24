@@ -1,0 +1,31 @@
+GEEKS FOR GEEKS
+Maximum no of 1's row
+CODE:
+----------------------------------------------------------------------------------------
+int maxOnes (vector <vector <int>> &Mat, int N, int M)
+        {
+            int count =0;
+            int pos=0;
+            for( int i=0;i<N;i++)
+            { 
+                int low=0;
+                int high=M-1;
+                int maxi=0;
+                
+                while( low<=high)
+                {int mid =low+(high-low)/2;
+                    if (Mat[i][mid]==1)
+                    {  maxi=max(maxi,M-mid);
+                        high=mid-1;
+                        
+                    }
+                    else low=mid+1;
+                }
+                if (maxi>count)
+                {
+                    count =maxi;
+                    pos=i;
+                }
+            }
+            return pos ;
+        }
