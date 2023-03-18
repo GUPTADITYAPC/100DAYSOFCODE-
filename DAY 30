@@ -1,0 +1,26 @@
+GEEKS FOR GEEKS
+DISTINCT DIFFERENCE
+CODE:
+--------------------------------------------------------------------------------------------
+vector<int> getDistinctDifference(int N, vector<int> &A) {
+        // code here
+        
+        set<int> st1,st2;
+        vector<int> start(N),end(N);
+        vector<int> res;
+        for( int i=0;i<N;i++)
+        {
+            start[i]=st1.size();
+            st1.insert(A[i]);
+        }
+        for( int j=N-1;j>=0;j--)
+        {
+            end[j]=st2.size();
+            st2.insert(A[j]);
+        }
+        for(int i=0;i<N;i++)
+        {
+            res.push_back(start[i]-end[i]);
+        }
+        return res;
+    }
