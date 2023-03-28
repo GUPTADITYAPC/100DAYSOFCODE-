@@ -1,0 +1,24 @@
+GEEKS FOR GEEKS 
+KADANE'S ALGORITHM
+CODE :
+------------------------------------------------------------------
+long long maxSubarraySum(int arr[], int n){
+        
+        // Your code here
+        int maxSum=INT_MIN;
+        int curSum=0;
+        for(int i=0;i<n;i++)
+            {
+                curSum=curSum+arr[i];
+                if(curSum>maxSum)
+                {
+                    maxSum=curSum;
+                }
+                if(curSum<0)
+                {
+                   curSum=0;
+                }
+            }      
+        return maxSum;
+        
+    }
