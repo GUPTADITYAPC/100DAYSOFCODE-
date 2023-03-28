@@ -1,0 +1,25 @@
+GEEKS FOR GEEKS
+COUNT THE SUBSTRINGS
+CODE:
+------------------------------------------------------------------------------------------
+   int countSubstring(string S)
+    { int N= S.length();
+      int l=0,u=0,count=0;
+       string ans ="";
+        // code here
+        for( int i=0;i<N;i++)
+        {
+            for( int j=i;j<N;j++)
+            {
+                if(S[j]>='A'&& S[j]<='Z')
+                u++;
+                else
+                l++;
+                if(u==l)
+                count++;
+            }
+            u=0;
+            l=0;
+        }
+        return count;
+    }
