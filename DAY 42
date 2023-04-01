@@ -1,0 +1,17 @@
+GEEKS FOR GEEKS 
+MAKE ARRAY ELEMENTS EQUAL
+CODE :
+--------------------------------------------------------------
+ long long int minOperations(int N) {
+        // Code here
+   
+       int mid =N/2;
+       if (N%2==0)
+       {
+          return  (long long int)mid*(long long int)mid;
+          
+       }
+       else return (long long int)mid *(long long int )(mid+1);
+        
+    }
+};
