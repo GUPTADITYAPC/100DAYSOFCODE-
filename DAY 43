@@ -1,0 +1,17 @@
+GEEKS FOR GEEKS 
+Recursively remove all adjacent duplicates
+CODE :
+------------------------------------------------------------------------------------------
+  string rremove(string s){
+    string res="";
+    int i=0;
+    while(s[i])
+    {
+        if (s[i]!=s[i+1] && s[i]!=s[i-1])
+        res+=s[i];
+        i++;
+    }
+    if(s.length()==res.length())
+    return res;
+    return rremove(res);
+    }
