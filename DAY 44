@@ -1,0 +1,15 @@
+GEEKS FOR GEEKS
+Remainder on dividing by 11
+CODE:
+---------------------------------------------------------------------
+  int xmod11(string x)
+    {
+       // code here
+        int res = 0;
+        for(auto i: x)
+            res= ((res * 10) + (i - '0')) % 11;
+        
+        return res;
+    
+    }
+};
