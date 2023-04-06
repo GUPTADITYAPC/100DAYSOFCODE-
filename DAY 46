@@ -1,0 +1,21 @@
+GEEKS FOR GEEKS 
+EQUAL LEFT AND RIGHT SUBARRAY SUM
+CODE:
+--------------------------------------------------------------------------------------------
+ int equalSum(int N, vector<int> &A) {
+        // code here
+        int total=0;
+        for( int i=0;i<N;i++)
+        {
+            total+=A[i];
+        }
+        int lsum=0;
+        for( int i=0;i<N;i++)
+        {
+            lsum+=A[i];
+            if(lsum-A[i]==total-lsum)
+            return i+1;
+        }
+        return -1;
+        
+    }
