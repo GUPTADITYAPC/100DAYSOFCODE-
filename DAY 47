@@ -1,0 +1,24 @@
+GEEKS FOR GEEKS 
+ADD MINIMUM CHARACTERS 
+CODE:
+-------------------------------------------------------------------------------
+  int addMinChar(string str){    
+        //code here
+      int start=0,end=str.length()-1;
+      int mid =str.length()/2;
+      int count =0;
+      while( start<end)
+      {
+          if (str[start]==str[end])
+          {
+              start++;
+              end--;
+          }
+          else{
+              count++;
+              start=0;
+              end=str.length()-1-count;
+          }
+      }
+      return count ;
+    }
