@@ -1,0 +1,26 @@
+GEEKS FOR GEEKS 
+Make the array beautiful
+CODE:
+----------------------------------------------------------------------------------------------
+ vector<int> makeBeautiful(vector<int> arr) {
+        // code here
+        vector<int> res;
+        stack<int> st;
+        for( int i=0;i<arr.size();i++)
+        {
+         if (st.empty())
+         st.push(arr[i]);
+         else if (( st.top()>=0 && arr[i]<0)||(st.top()<0 && arr[i]>=0))
+          st.pop();
+          else 
+          st.push(arr[i]);
+        }
+        while(!st.empty())
+        {
+            res.push_back(st.top());
+            st.pop();
+            }
+            reverse(res.begin(),res.end());
+            return res;
+            
+    }
