@@ -1,0 +1,24 @@
+GEEKS FOR GEEKS 
+Maximum Intersecting Lines
+CODE:
+-------------------------------------------------------------------------
+ int maxIntersections(vector<vector<int>> lines, int N) {
+        // Code here
+        map<int,int> mp;
+        for( auto it : lines)
+        {
+            int m=it[0];
+            int e=it[1];
+            mp[m]++;
+            mp[e+1]--;
+        }
+        int maxi=1;
+        int presum=0;
+        for( auto it : mp)
+        {
+            presum+=it.second;
+            maxi=max(maxi,presum);
+        }
+        return maxi;
+        
+    }
