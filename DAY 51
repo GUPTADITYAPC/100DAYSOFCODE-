@@ -12,3 +12,29 @@ CODE:
         return -1;
         else return a+b+c;
     }
+    
+    
+LEETCODE
+2390. Removing Stars From a String
+CODE:
+--------------------------------------------------------------------------------------------
+string removeStars(string s) {
+        vector<char>v ;
+        string ans="";
+        for( int i=0;i<s.length();i++)
+        {
+            if (s[i]=='*' )
+            {
+                if ( !v.empty())
+            
+            v.pop_back();
+            }
+            else 
+            v.push_back(s[i]);
+        }
+        for ( int i=0;i<v.size();i++)
+        {
+            ans+=v[i];
+        }
+        return ans;
+    }
