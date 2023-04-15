@@ -1,0 +1,23 @@
+GEEKS FOR GEEKS 
+Find Total Time Taken
+CODE:
+-----------------------------------------------------------------------------------------
+int totalTime(int n, vector<int> &arr, vector<int> &time) {
+        // code here
+        map<int,int> mp ;
+        mp[arr[0]]++;
+        int times=0;
+        for( int i=1;i<n;i++)
+        {    
+            if(mp.find(arr[i])!=mp.end())
+            {
+               times=times+time[arr[i]-1];
+
+
+
+            }
+            else
+              times=times+1;
+             mp[arr[i]]++;
+        }
+        return times;
