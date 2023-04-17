@@ -1,0 +1,28 @@
+LEETCODE
+209. Minimum Size Subarray Sum
+CODE:
+---------------------------------------------------------------------
+int minSubArrayLen(int target, vector<int>& nums) {
+        int i=0,j=0,sum=0;
+        int mini=INT_MAX;
+         bool flag=false;
+        while(j<nums.size()){
+            sum+=nums[j];
+            if(sum>=target)
+            {
+              int windowsize=j-i+1;
+              flag=1;
+              mini=min(mini,windowsize);
+              sum-=nums[i];
+              i++;
+            }
+         while(sum>=target){
+             mini=min(mini,j-i+1);
+             sum-=nums[i];
+             i++;
+            }
+           j++;
+           }
+        if(flag==false) return 0;
+        return mini;
+    }
