@@ -1,0 +1,22 @@
+GEEKS FOR GEEKS
+Wifi Range
+CODE:
+----------------------------------------------------------------------------------------------
+ bool wifiRange(int N, string S, int X){
+        // code here
+        int count =0;
+        for( int i=0;i<N;i++)
+        {
+            if (S[i]=='0')
+            count--;
+         else 
+         count=X;
+            
+            if (count<-X) return false;
+            
+        }
+        if (count>=0)
+        return true ;
+        else 
+        return false;
+    }
