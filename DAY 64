@@ -21,3 +21,56 @@ CODE :
         if (!pq.empty())
         return pq.top();
         else return 0;    }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+  GEEKS FOR GEEKS 
+  Nearest smaller tower
+  CODE:
+  ----------------------------------------------------------------
+    vector<int> nearestSmallerTower(vector<int> arr)
+    {
+        // code here
+        int i;
+        int n=arr.size();
+        stack<int> st;
+        vector<int>v(n,-1);
+        for( int i=n-1;i>=0;i--)
+        {
+            while(st.size() && arr[st.top()]>=arr[i])
+            st.pop();
+            v[i]=st.size()?st.top():-1;
+            st.push(i);
+        }
+        while(st.size())
+        st.pop();
+        for( i=0;i<n;i++)
+        {
+            while(st.size() && arr[st.top()]>=arr[i])
+            st.pop();
+            if(st.size())
+            {
+                if(v[i]==-1)
+                v[i]=st.top();
+                else{
+                    int index=st.top();
+                    if((i-index)<(v[i]-i))
+                    v[i]=index;
+                    else if ((i-index) ==(v[i]-i) )
+                    {
+                        if (arr[index]<=arr[v[i]])
+                        v[i]=index;
+                    }
+                }
+            }
+            st.push(i);
+        }
+        return v;
+    }
