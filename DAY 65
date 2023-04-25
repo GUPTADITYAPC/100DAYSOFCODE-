@@ -1,0 +1,23 @@
+LEETCODE 
+2336. Smallest Number in Infinite Set
+CODE:
+----------------------------------------------------------------------------
+class SmallestInfiniteSet {
+public:
+set<int> st;
+    SmallestInfiniteSet() {
+        for( int i=1;i<=1000;i++)
+        {
+            st.insert(i);
+        }
+    }
+    
+    int popSmallest() {
+        int temp=*st.begin();
+        st.erase(temp);
+        return temp;
+    }
+    
+    void addBack(int num) {
+        st.insert(num);
+    }
