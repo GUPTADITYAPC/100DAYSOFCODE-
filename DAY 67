@@ -1,0 +1,7 @@
+LEET CODE 
+319. Bulb Switcher
+CODE :
+----------------------------------------------------------------
+  int bulbSwitch(int n) {
+     return sqrt (n);
+    }
