@@ -1,0 +1,57 @@
+GEEKS FOR GEEKS 
+Find Number
+CODE :
+------------------------------------------------------------------
+ long long findNumber(long long N){
+        // Code her
+        
+        //brute force approach
+       /* 
+          int count=0;
+        for( int i =1;;i++)
+        {
+            int num=i;
+            bool isodd=true ;
+            while(num!=0)
+            {
+                if (num%10==0||num%10==2||num%10==4||num%10==6||num%10==8)
+                {isodd=false;
+                break;
+                }
+                num/=10;
+             }
+        
+        if (isodd==true)
+        count++;
+        if(count ==N)
+        return i;
+        }
+        */
+        
+        //optimized by log5(N)
+        
+        vector<int>v={9,1,3,5,7};
+        long long ans=0;
+        while(N>0)
+        {
+            ans=ans*10+v[N%5];
+            if(N%5==0)
+            {N/=5;
+            N--;}
+            else
+            N/=5;
+        }
+        queue<int> q;
+        while(ans>0)
+        {
+            q.push(ans%10);
+            ans/=10;
+        }
+         while (!q.empty())
+        {
+        ans = ans * 10 + q.front();
+        q.pop();
+        }
+    return ans;
+        
+    }
