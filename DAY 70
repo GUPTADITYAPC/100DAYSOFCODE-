@@ -1,0 +1,30 @@
+GEEKS FOR GEEKS 
+Subtree In N-ary Tree
+CODE :
+-----------------------------------------------------------------------------------------
+class Solution{
+public:
+int res=0;
+string duplicate(Node* &root,map<string,int> &mp)
+{
+    if(root==NULL)
+    return "N";
+    string str="";
+    str+=to_string(root->data)+",";
+    for( Node * it :root->children)
+    {
+        str+=duplicate(it,mp)+",";
+    }
+    if(mp[str]==1)
+    res++;
+    mp[str]++;
+    return str;
+}
+
+    int duplicateSubtreeNaryTree(Node *root){
+        // Code here
+        map<string ,int> mp;
+        duplicate(root,mp);
+        return res;
+    }
+};
