@@ -55,3 +55,42 @@ CODE :
     return ans;
         
     }
+    
+   
+   
+   
+GEEKS FOR GEEKS 
+Powerfull Integer
+CODE:
+------------------------------------------------------------------------------------------------
+ int powerfullInteger(int n,vector<vector<int>> &intervals,int k){
+        // Code here
+        map<int,int> mp;
+        for( auto it:intervals)
+        {
+            mp[it[0]]++;
+            mp[it[1]+1]--;
+            
+        }
+        int curr=0;
+        int maxi=-1;
+        bool flag=false;
+        for(auto it :mp)
+        {
+            curr+=it.second;
+            if(curr>=k)
+            {
+                flag=true;
+                maxi=it.first;
+            }
+            else if (flag==true)
+            {
+                maxi=it.first-1;
+                flag=false;
+            }
+            
+        }
+        return maxi;
+    }
+    
+    
