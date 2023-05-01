@@ -1,0 +1,36 @@
+GEEKS FOR GEEKS 
+Cake Distribution Problem
+CODE:
+-----------------------------------------------------------------------------------------------
+  int maxSweetness(vector<int>& sweetness, int N, int K) {
+    // Write your code here.
+    int low=0,high=1e9;
+    int res =0;
+     
+    while(low<=high)
+    {
+        int mid=low+(high -low )/2;
+        long long sum=0;
+       int  count =0;
+        
+        for ( int i=0;i<N;i++)
+        {
+            sum+=sweetness[i];
+            if (sum>=mid)
+            {
+                 count++;
+                 sum=0;
+            }
+        }
+        if (count >=K+1)
+        {    
+            res=mid ;
+            low=mid+1;
+            
+            
+        }
+        else 
+        high =mid-1;
+    }
+    return res;
+    }
