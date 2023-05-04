@@ -1,0 +1,29 @@
+GEEKS FOR GEEKS 
+Good Subtrees
+CODE:
+---------------------------------------------------------------------------------------------------
+  set <int> st;
+  int count =0;
+  
+    set<int> subtree(Node * root,int K)
+    {
+        if (root==NULL)
+        return st ;
+        set<int>lcount=subtree(root->left,K);
+        set<int> rcount=subtree(root->right,K);
+       lcount.insert(root->data);
+       lcount.insert(rcount.begin(),rcount.end());
+       
+       
+       if (lcount.size()<=K)
+       count++;
+        
+        return lcount;
+    }
+    int goodSubtrees(Node *root,int k){
+        // Code here
+      
+       subtree(root,k);
+       return count;
+        
+    }
