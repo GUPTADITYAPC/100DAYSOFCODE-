@@ -1,0 +1,22 @@
+GEEKS FOR GEEKS 
+String Mirror
+CODE:
+------------------------------------------------
+ string stringMirror(string str){
+        // Code here
+        int n =str.length();
+        string res="";
+        res+=str[0];
+        for( int i=1;i<n;i++)
+        {
+            if (str[i]>str[i-1])
+            break;
+            if(str[i]==str[i-1] && str[i]==str[0])
+            break;
+            res+=str[i];
+        }
+        string temp=res;
+        reverse(temp.begin(),temp.end());
+        res+=temp;
+        return res;
+    }
