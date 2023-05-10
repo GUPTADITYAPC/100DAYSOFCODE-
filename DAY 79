@@ -1,0 +1,42 @@
+LEETCODE
+59. Spiral Matrix II
+CODE:
+----------------------------------------------------------------
+    vector<vector<int>> generateMatrix(int n) {
+        vector<vector<int>> v(n, vector<int>(n, 0));
+        int count =0;
+        int totalEle=n*n;
+        int srow=0,scol=0;   
+        int erow=n-1,ecol=n-1;
+        while(count < totalEle)
+        {
+           for( int i=scol;i<=ecol && count<totalEle;i++)
+           {
+               count ++;
+               v[srow][i]=count;
+           }
+           srow++;
+           for( int i=srow;i<=erow && count<totalEle;i++)
+           {
+               count++;
+               v[i][ecol]=count;
+
+           }
+           ecol--;
+           for( int i=ecol;i>=scol && count<totalEle;i--)
+           {
+               count++;
+               v[erow][i]=count;
+           }
+           erow--;
+           for( int i=erow;i>=srow && count<totalEle;i--)
+           {
+               count++;
+               v[i][scol]=count;       
+            }
+            scol++;
+
+
+        }
+        return v;
+    }
