@@ -1,0 +1,50 @@
+GEEKS FOR GEEKS 
+Find k-th smallest element in given n ranges
+CODE:
+----------------------------------------------------------------------------------------------
+vector<int>kthSmallestNum(int n, vector<vector<int>>&range, int q, vector<int>queries){
+        //Write your code here
+      sort(range.begin(),range.end());
+      // merge intervals
+      vector<vector<int>> merge;
+      for( int i=0;i<n-1;i++)
+      {
+          if(range[i][1]>=range[i+1][0])
+          {
+              range[i+1][0]=min(range[i][0],range[i+1][0]);
+              range[i+1][1]=max(range[i][1],range[i+1][1]);
+              
+          }
+          else
+          merge.push_back(range[i]);
+      }
+      merge.push_back(range[n-1]);
+      set<int>s;
+      int cum_sum=0;
+      //calculate cummulative sum of a number 
+      for (auto cur_range: merge)
+      {
+          int num_ele=cur_range[1]-cur_range[0]+1;
+          cum_sum+=num_ele;
+          s.insert(cum_sum);
+      }
+      vector<int> ans;
+      for( auto q:queries)
+      {
+          auto it =s.lower_bound(q);
+          if (it==s.end())
+          ans.push_back(-1);
+          else if(it==s.begin())
+          {
+              ans.push_back(merge[0][0]+q-1);
+          }
+          else
+          {
+              int prevele=*prev(it);
+              int kth=q-prevele;
+              int idx=distance(s.begin(),it);
+              ans.push_back(merge[idx][0]+kth-1);
+          }
+      }
+      return ans;
+    } 
