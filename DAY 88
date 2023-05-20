@@ -1,0 +1,34 @@
+GEEKS FOR GEEKS
+Hands of Straights
+CODE:
+-------------------------------------------------------------------------------------
+ bool isStraightHand(int N, int groupSize, vector<int> &hand) {
+        // code here
+        if (N%groupSize!=0)
+        return 0;
+        sort(hand.begin(),hand.end());
+        unordered_map<int,int> mp;
+        for( int i=0;i<N;i++)
+        {
+            mp[hand[i]]++;
+            
+        }
+        int count ;
+        long long sum;
+        for( int i=0;i<N;i++){
+            if(mp[hand[i]]==0)
+            continue;
+            count=1;
+            while(count<groupSize)
+            {
+                sum=hand[i]+count;
+                if(mp.find(sum)==mp.end())
+                return false;
+                count++;
+                mp[sum]--;
+            }
+            mp[hand[i]]--;
+            
+        }
+        return true;
+    }
