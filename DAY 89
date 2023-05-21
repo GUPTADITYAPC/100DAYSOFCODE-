@@ -1,0 +1,15 @@
+GEEKS FOR GEEKS 
+Bus Conductor
+CODE :
+--------------------------------------------------------------------------
+   int findMoves(int n, vector<int> chairs, vector<int> passengers) {
+        int res =0;
+        sort( chairs.begin(),chairs.end());
+        sort(passengers.begin(),passengers.end());
+        for( int i=0;i<n;i++)
+        {
+            res+=abs(chairs[i]-passengers[i]);
+            
+          }
+          return res ;
+    }
