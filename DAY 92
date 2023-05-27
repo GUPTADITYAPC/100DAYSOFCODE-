@@ -1,0 +1,29 @@
+GEEKS FOR GEEKS
+Modify Linked List-1
+CODE:
+-------------------------------------------------------------------------------
+ struct Node* modifyTheList(struct Node *head)
+    {
+        //add code here.
+        Node *temp=head;
+        
+        vector<int> v;
+        while(temp!=NULL)
+        {
+            v.push_back(temp->data);
+            temp=temp->next;
+        }
+        for( int i=0;i<v.size()/2;i++)
+        {
+            v[i]=v[v.size()-1-i]-v[i];
+            v[v.size()-1-i] -=v[i];
+        }
+        temp=head;
+        int i=0;
+        while(temp!=NULL)
+        {
+            temp->data =v[i++];
+            temp=temp->next;
+        }
+        return head;
+    }
