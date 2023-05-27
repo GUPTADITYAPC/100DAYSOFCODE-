@@ -1,0 +1,28 @@
+GEEKS FOR GEEKS
+Nth node from end of linked list
+CODE:
+------------------------------------------------------------------
+int getNthFromLast(Node *head, int n)
+{
+       // Your code here
+       int count =0;
+       Node * temp=head;
+       while(temp!=NULL)
+       {
+           count++;
+           temp=temp->next;
+       }
+
+       if (count>=n)
+       {
+          for( int i=1;i<=count-n;i++)
+          {
+           
+                 head=head->next;
+           }
+        return head->data;
+       }
+       else 
+       return -1;
+       
+}
