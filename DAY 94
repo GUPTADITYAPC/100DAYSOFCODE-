@@ -1,0 +1,27 @@
+LEETCODE
+1603. Design Parking System
+CODE:
+---------------------------------------------------------------------
+class ParkingSystem {
+public:
+  int x,y,z;
+    ParkingSystem(int big, int medium, int small) {
+        x=big;
+        y=medium;
+        z=small;
+
+    }
+    
+    bool addCar(int carType) {
+        if((carType==1 && x==0)||(carType==2 && y==0)||(carType==3 && z==0))
+        return false;
+        else if(carType==1)
+        x--;
+        else if (carType==2)
+        y--;
+        else if(carType==3)
+        z--;
+        
+        return true;
+    }
+};
