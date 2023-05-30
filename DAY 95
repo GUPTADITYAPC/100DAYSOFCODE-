@@ -1,0 +1,23 @@
+LEETCODE
+705. Design HashSet
+CODE:
+--------------------------------------------------------------------------------------
+class MyHashSet {
+public:
+vector <int> res;
+    MyHashSet() {
+        res.resize(10e6,0);
+    }
+    
+    void add(int key) {
+        res[key]=1;
+    }
+    
+    void remove(int key) {
+        res[key]=0;
+    }
+    
+    bool contains(int key) {
+        return res[key];
+    }
+};
