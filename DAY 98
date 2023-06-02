@@ -1,0 +1,21 @@
+GEEKS FOR GEEKS 
+Print Anagrams Together
+CODE:
+----------------------------------------------------------------------
+ vector<vector<string> > Anagrams(vector<string>& string_list) {
+        //code here
+        vector<vector<string>> res;
+        unordered_map<string,vector<string>> mp;
+        for (auto it :string_list)
+        {
+          string temp=it;
+          sort( it.begin(),it.end());
+          mp[it].push_back(temp);
+        }
+        for (auto it :mp)
+        {
+            res.push_back(it.second);
+        }
+        return res;
+    }
+};
